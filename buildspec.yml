@@ -1,0 +1,20 @@
+# create a buildspec.yml content for this html/css website project
+
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Running install commands"
+  pre_build:
+    commands:
+      - echo "Running pre-build commands"
+  build:
+    commands:
+      - echo "Running build commands"
+  post_build:
+    commands:
+      - echo "Running post-build commands"
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no # Preserve the directory structure of the artifacts

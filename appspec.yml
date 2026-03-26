@@ -1,0 +1,24 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www/html
+    file_exists_behavior: OVERWRITE
+
+hooks:
+  BeforeInstall:
+    - location: codedeploy/install_apache2.sh
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: codedeploy/after_install.sh
+      timeout: 300
+      runas: root
+
+  ApplicationStart:
+    - location: codedeploy/start_apache2.sh
+      timeout: 300
+      runas: root
+      
